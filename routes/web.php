@@ -15,6 +15,11 @@
 //    return view('welcome');
 //});
 
-Route::get('/','StaticpagesController@home');
-Route::get('/help','StaticpagesController@help');
-Route::get('/about','StaticpagesController@about');
+//静态页面路由
+Route::get('/','StaticpagesController@home')->name('home');
+Route::get('/help','StaticpagesController@help')->name('help');
+Route::get('/about','StaticpagesController@about')->name('about');
+
+//非静态页面理由
+
+Route::get('signup','UsersController@create')->name('signup');
