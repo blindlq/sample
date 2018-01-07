@@ -23,3 +23,4 @@ Route::get('/about','StaticpagesController@about')->name('about');
 //非静态页面理由
 
 Route::get('signup','UsersController@create')->name('signup');
+Route::resource('users','UsersController');
