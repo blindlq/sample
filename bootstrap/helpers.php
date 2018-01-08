@@ -4,7 +4,7 @@ if(!function_exists(get_db_config)) {
     function get_db_config()
     {
         if(getenv('IS_IN_HEROKU')){
-            $url = parse_url(getenv('"DATABASE_URL"'));
+            $url = parse_url(getenv("DATABASE_URL"));
 
             return $db_config = [
                 'connection' => 'pgsql',
