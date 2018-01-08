@@ -10,9 +10,9 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
-//引入数据库配置
+ require __DIR__.'/helpers.php';
 
-require __DIR__.'/helpers.php';
+
 
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
