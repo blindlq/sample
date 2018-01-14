@@ -1,6 +1,6 @@
 <?php
 //线上数据库配置
-if(!function_exists(get_db_config)) {
+if(!function_exists('get_db_config')) {
     function get_db_config()
     {
         if(getenv('IS_IN_HEROKU')){
