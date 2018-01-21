@@ -23,8 +23,11 @@ Route::get('/about','StaticpagesController@about')->name('about');
 //非静态页面理由
 
 Route::get('signup','UsersController@create')->name('signup');
+Route::get('/users/{user}/edit','UsersController@edit')->name('users.edit');
 Route::resource('users','UsersController');
 
 Route::get('login','SessionsController@create')->name('login');
 Route::post('login','SessionsController@store')->name('login');
 Route::delete('loginout','SessionsController@destroy')->name('logout');
+
+
