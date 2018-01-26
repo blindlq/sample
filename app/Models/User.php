@@ -38,4 +38,14 @@ class User extends Authenticatable
 
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function ($user){
+            $user->activation_token = srt_random(30);
+        });
+
+
+    }
 }
