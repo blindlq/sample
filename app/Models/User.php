@@ -43,7 +43,7 @@ class User extends Authenticatable
     {
         parent::boot();
         static::creating(function ($user){
-            $user->activation_token = srt_random(30);
+            $user->activation_token = str_random(30);
         });
 
 
