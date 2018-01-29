@@ -11,6 +11,16 @@
                     </section>
                 </div>
             </div>
+            <div class="col-md-12">
+                @if(conunt($statuses) > 0)
+                    <ol>
+                        @foreach($statuses as $status)
+                            @include('statuses._status')
+                        @endforeach
+                    </ol>
+                    {!! $statuses->render() !!} }
+                @endif
+            </div>
         </div>
     </div>
     @stop
