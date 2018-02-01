@@ -8364,6 +8364,10 @@ textarea {
   resize: vertical;
 }
 
+textarea.form-control {
+  height: 100px;
+}
+
 .jumbotron {
   text-align: center;
 }
@@ -8561,5 +8565,61 @@ input {
   float: right;
   position: relative;
   right: 0;
+}
+
+/* statuses */
+
+.statuses {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.statuses li {
+  padding: 20px 0;
+  border-top: 1px solid #e8e8e8;
+  position: relative;
+}
+
+.statuses .user {
+  margin-top: 5em;
+  padding-top: 0;
+}
+
+.statuses .content {
+  display: block;
+  margin-left: 60px;
+  word-break: break-word;
+}
+
+.statuses .content img {
+  display: block;
+  padding: 5px 0;
+}
+
+.statuses .timestamp {
+  color: #777777;
+  display: block;
+  margin-left: 60px;
+}
+
+.statuses .gravatar {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.statuses from button.status-delete-btn {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+aside textarea {
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+.status_form {
+  margin-top: 20px;
 }
 

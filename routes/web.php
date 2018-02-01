@@ -24,7 +24,10 @@ Route::get('/about','StaticpagesController@about')->name('about');
 
 Route::get('signup','UsersController@create')->name('signup');
 Route::get('/users/{user}/edit','UsersController@edit')->name('users.edit');
+
+//resource路由
 Route::resource('users','UsersController');
+Route::resource('statuses','StatusesController',['only'=>['store','destroy']]);
 
 Route::get('login','SessionsController@create')->name('login');
 Route::post('login','SessionsController@store')->name('login');

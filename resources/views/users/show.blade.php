@@ -12,13 +12,13 @@
                 </div>
             </div>
             <div class="col-md-12">
-                @if(conunt($statuses) > 0)
-                    <ol>
+                @if(count($statuses) > 0)
+                    <ol class="statuses">
                         @foreach($statuses as $status)
                             @include('statuses._status')
                         @endforeach
                     </ol>
-                    {!! $statuses->render() !!} }
+                   {!! $statuses->render() !!}
                 @endif
             </div>
         </div>
