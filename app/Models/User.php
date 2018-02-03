@@ -59,13 +59,69 @@ class User extends Authenticatable
         $this->notify(new ResetPassword($token));
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * 用户与博客 1对多关系
+     */
     public function statuses()
     {
         return $this->hasMany(Status::class);
     }
 
+    /**
+     * @return $this
+     * 取出用户所有文章
+     */
     public function feed()
     {
         return $this->statuses()->orderBy('created_at','desc');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * 粉丝关系多对多
+     */
+    public function followers()
+    {
+        return $this->belongsToMany(User::class,'followers','user_id','follower_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function followings()
+    {
+        return $this->belongsToMany(User::class,'followers','follower_id','user_id');
+    }
+
+    /**
+     * @param $user_ids
+     * 注册关注事件
+     */
+    public function follow($user_ids)
+    {
+        if(!is_array($user_ids)){
+            $user_ids = compact('user_ids');
+        }
+
+        $this->followings()->sync($user_ids,false);
+    }
+
+    /**
+     * @param $user_ids
+     * 取消关注事件
+     */
+    public function unfollow($user_ids)
+    {
+        if(!is_array($user_ids)){
+            $user_ids = compact('user_ids');
+        }
+
+        $this->followings->detach($user_ids);
+    }
+
+    public function isFollowing($user_id)
+    {
+        return $this->followings->contains($user_id);
     }
 }

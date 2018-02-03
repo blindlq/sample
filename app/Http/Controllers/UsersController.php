@@ -152,6 +152,27 @@ class UsersController extends Controller
     }
 
     /**
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 关注人列表
+     */
+    public function followings(User $user)
+    {
+        $users = $users->followings()->paginate(30);
+        $title = '我的关注';
+
+        return view('user.show_follow',compact('users','title'));
+    }
+
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(30);
+        $title = '我的粉丝';
+
+        return view('user.show_follow',compact('users','title'));
+    }
+
+    /**
      * @param $user
      * 邮件发送方法
      */
