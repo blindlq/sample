@@ -45,5 +45,5 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 
 //粉丝路由
-Route::get('user/{user}/followings','UsersController@followings')->name('users.followings');
-Route::get('user/{user}/followers','UsersController@followings')->name('users.followers');
+Route::get('users/{user}/followings','UsersController@followings')->name('users.followings');
+Route::get('users/{user}/followers','UsersController@followers')->name('users.followers');

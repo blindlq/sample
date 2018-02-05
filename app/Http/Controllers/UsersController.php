@@ -158,10 +158,11 @@ class UsersController extends Controller
      */
     public function followings(User $user)
     {
-        $users = $users->followings()->paginate(30);
+
+        $users = $user->followings()->paginate(30);
         $title = '我的关注';
 
-        return view('user.show_follow',compact('users','title'));
+        return view('users.show_follow',compact('users','title'));
     }
 
     public function followers(User $user)
@@ -169,7 +170,7 @@ class UsersController extends Controller
         $users = $user->followers()->paginate(30);
         $title = '我的粉丝';
 
-        return view('user.show_follow',compact('users','title'));
+        return view('users.show_follow',compact('users','title'));
     }
 
     /**
