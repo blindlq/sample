@@ -9,15 +9,18 @@
                 <h3>微博列表</h3>
                 @include('shared._feed')
             </div>
-            <aside class="col-md-4 ">
+            <aside class="col-md-4">
                 <section  class="user_info">
                     @include('shared._user_info',['user'=> Auth::user()])
+                </section>
+                <section class="stats">
+                    @include('shared._stats', ['user' => Auth::user()])
                 </section>
             </aside>
         </div>
     @else
     <div class="jumbotron">
-        <h1>Hello Laravel</h1>
+        <h1>Hello Blog</h1>
         <p class="lead">
             你现在所看到的是 <a href="https://fsdhub.com/books/laravel-essential-training-5.1">Laravel </a> 的示例项目主页。
         </p>
