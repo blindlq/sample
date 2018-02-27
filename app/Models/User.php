@@ -74,7 +74,14 @@ class User extends Authenticatable
      */
     public function feed()
     {
-        return $this->statuses()->orderBy('created_at','desc');
+        //取出所有关注用户的id
+        $user_ids = Auth::user()->followings->pluck('id')->toArray();
+        //将当前用户加入$user_ids
+        array_push($user_ids,Auth::user()->id);
+
+        return Status::whereIn('user_id',$user_ids)
+                                ->with('user')
+                                ->orderBy('created_at','desc');
     }
 
     /**
